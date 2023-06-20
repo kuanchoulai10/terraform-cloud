@@ -24,7 +24,7 @@ resource "tfe_workspace" "advertising_data_pipeline" {
     identifier         = "kuanchoulai10/data-mesh"
     branch             = "main"
     ingress_submodules = false
-    oauth_token_id     = data.tfe_github_app_installation.main.id
+    oauth_token_id     = data.tfe_oauth_client.main.id
   }
 
   # Other settings
