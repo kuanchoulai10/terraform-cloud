@@ -4,7 +4,7 @@ resource "tfe_project" "advertising" {
 }
 
 resource "tfe_workspace" "advertising_data_pipeline" {
-  organization        = tfe_organization.main.name
+  organization        = tfe_organization.kcl.name
   name                = "Advertising Data Pipeline"
   project_id          = tfe_project.advertising.id
   execution_mode      = "remote"
