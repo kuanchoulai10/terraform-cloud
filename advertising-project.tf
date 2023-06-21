@@ -5,7 +5,7 @@ resource "tfe_project" "advertising" {
 
 resource "tfe_workspace_variable_set" "advertising_data_sink" {
   workspace_id = tfe_workspace.advertising_data_sink.id
-  variable_set_id = tfe_variable_set.advertising_data_pipeline_sink.id
+  variable_set_id = tfe_variable_set.advertising_data_sink.id
 }
 
 moved {
