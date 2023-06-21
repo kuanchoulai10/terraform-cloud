@@ -4,7 +4,7 @@ resource "tfe_project" "advertising" {
 }
 
 resource "tfe_workspace_variable_set" "advertising_data_sink" {
-  workspace_id = tfe_workspace.advertising_data_sink.workspace_id
+  workspace_id = tfe_workspace.advertising_data_sink.id
   variable_set_id = tfe_variable_set.advertising_data_pipeline_sink.variable_set_id
 }
 
@@ -42,8 +42,8 @@ resource "tfe_workspace" "advertising_data_sink" {
 }
 
 resource "tfe_workspace_variable_set" "advertising_data_dev" {
-  workspace_id = tfe_workspace.advertising_data_dev.workspace_id
-  variable_set_id = tfe_variable_set.advertising_data_pipeline_dev.variable_set_id
+  workspace_id = tfe_workspace.advertising_data_dev.id
+  variable_set_id = tfe_variable_set.advertising_data_dev.variable_set_id
 }
 
 resource "tfe_workspace" "advertising_data_dev" {
@@ -75,8 +75,8 @@ resource "tfe_workspace" "advertising_data_dev" {
 }
 
 resource "tfe_workspace_variable_set" "advertising_data_prod" {
-  workspace_id = tfe_workspace.advertising_data_prod.workspace_id
-  variable_set_id = tfe_variable_set.advertising_data_pipeline_prod.variable_set_id
+  workspace_id = tfe_workspace.advertising_data_prod.id
+  variable_set_id = tfe_variable_set.advertising_data_prod.variable_set_id
 }
 
 resource "tfe_workspace" "advertising_data_prod" {
