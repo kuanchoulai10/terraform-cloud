@@ -8,14 +8,9 @@ resource "tfe_workspace_variable_set" "advertising_data_sink" {
   variable_set_id = tfe_variable_set.advertising_data_sink.id
 }
 
-moved {
-  from = tfe_workspace.advertising_data_pipeline_sink
-  to = tfe_workspace.advertising_data_sink
-}
-
 resource "tfe_workspace" "advertising_data_sink" {
   organization        = data.tfe_organization.kcl.name
-  name                = "data-sink"
+  name                = "advertising-data-sink"
   project_id          = tfe_project.advertising.id
   execution_mode      = "remote"
   auto_apply          = false
@@ -48,7 +43,7 @@ resource "tfe_workspace_variable_set" "advertising_data_dev" {
 
 resource "tfe_workspace" "advertising_data_dev" {
   organization        = data.tfe_organization.kcl.name
-  name                = "data-dev"
+  name                = "advertising-data-dev"
   project_id          = tfe_project.advertising.id
   execution_mode      = "remote"
   auto_apply          = false
@@ -81,7 +76,7 @@ resource "tfe_workspace_variable_set" "advertising_data_prod" {
 
 resource "tfe_workspace" "advertising_data_prod" {
   organization        = data.tfe_organization.kcl.name
-  name                = "data-prod"
+  name                = "advertising-data-prod"
   project_id          = tfe_project.advertising.id
   execution_mode      = "remote"
   auto_apply          = false

@@ -10,7 +10,7 @@ resource "tfe_workspace_variable_set" "video_data_sink" {
 
 resource "tfe_workspace" "video_data_sink" {
   organization        = data.tfe_organization.kcl.name
-  name                = "data-sink"
+  name                = "video-data-sink"
   project_id          = tfe_project.video.id
   execution_mode      = "remote"
   auto_apply          = false
@@ -43,7 +43,7 @@ resource "tfe_workspace_variable_set" "video_data_dev" {
 
 resource "tfe_workspace" "video_data_dev" {
   organization        = data.tfe_organization.kcl.name
-  name                = "data-dev"
+  name                = "video-data-dev"
   project_id          = tfe_project.video.id
   execution_mode      = "remote"
   auto_apply          = false
@@ -76,7 +76,7 @@ resource "tfe_workspace_variable_set" "video_data_prod" {
 
 resource "tfe_workspace" "video_data_prod" {
   organization        = data.tfe_organization.kcl.name
-  name                = "data-prod"
+  name                = "video-data-prod"
   project_id          = tfe_project.video.id
   execution_mode      = "remote"
   auto_apply          = false
