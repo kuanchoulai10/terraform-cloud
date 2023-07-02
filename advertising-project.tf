@@ -3,6 +3,8 @@ resource "tfe_project" "advertising" {
   name = "Advertising"
 }
 
+#################################################################################
+
 resource "tfe_workspace_variable_set" "advertising_data_sink" {
   workspace_id = tfe_workspace.advertising_data_sink.id
   variable_set_id = tfe_variable_set.advertising_data_sink.id
@@ -41,6 +43,8 @@ data "tfe_workspace" "advertising_data_sink" {
   organization = data.tfe_organization.kcl.name
 }
 
+#################################################################################
+
 resource "tfe_workspace_variable_set" "advertising_data_dev" {
   workspace_id = tfe_workspace.advertising_data_dev.id
   variable_set_id = tfe_variable_set.advertising_data_dev.id
@@ -56,7 +60,8 @@ resource "tfe_workspace" "advertising_data_dev" {
   working_directory   = "advertising/infrastructure/data-dev"
   global_remote_state = false
   remote_state_consumer_ids = [
-    data.tfe_workspace.advertising_data_prod.id
+    data.tfe_workspace.advertising_data_prod.id,
+    data.tfe_workspace.advertising_data_sink.id,
   ]
   structured_run_output_enabled = true
   tag_names = [
@@ -80,6 +85,8 @@ data "tfe_workspace" "advertising_data_dev" {
   organization = data.tfe_organization.kcl.name
 }
 
+#################################################################################
+
 resource "tfe_workspace_variable_set" "advertising_data_prod" {
   workspace_id = tfe_workspace.advertising_data_prod.id
   variable_set_id = tfe_variable_set.advertising_data_prod.id
@@ -95,6 +102,7 @@ resource "tfe_workspace" "advertising_data_prod" {
   working_directory   = "advertising/infrastructure/data-prod"
   global_remote_state = false
   remote_state_consumer_ids = [
+    data.tfe_workspace.advertising_data_sink.id,
   ]
   structured_run_output_enabled = true
   tag_names = [
