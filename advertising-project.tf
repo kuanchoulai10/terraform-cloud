@@ -69,12 +69,12 @@ resource "tfe_workspace" "advertising_data_dev" {
   ]
 
   speculative_enabled = true
-  vcs_repo {
-    identifier         = "kuanchoulai10/data-mesh"
-    branch             = "main"
-    ingress_submodules = false
-    oauth_token_id     = data.tfe_oauth_client.main.oauth_token_id
-  }
+  # vcs_repo {
+  #   identifier         = "kuanchoulai10/data-mesh"
+  #   branch             = "main"
+  #   ingress_submodules = false
+  #   oauth_token_id     = data.tfe_oauth_client.main.oauth_token_id
+  # }
   queue_all_runs      = false
   assessments_enabled = false
   allow_destroy_plan  = false
